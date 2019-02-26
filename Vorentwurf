@@ -1,0 +1,108 @@
+/*
+ * Ziel:
+ * 	10% Charakter, 60% Medallie, 30% Gold
+ * 	5 versch. charaktere
+ * 	bei medallie:
+ * 		30% 10 Medallien
+ * 		70% 5 Medallien 
+ */
+
+import java.util.Random;
+
+public class Lottsystem {
+
+	public static void main(String[] args) {
+		int charCount = 5;		//Anzahl möglicher Charaktere
+		
+		Random lootType = new Random();
+		int lootTypeDraw = 1+ lootType.nextInt(100); //Char, Medal oder Gold
+		System.out.println(lootTypeDraw);
+		
+		if (lootTypeDraw < 11){		//die systemoutputs sind nur zum testen
+			System.out.println("Charakter");	
+			Random charType = new Random();
+			int charTypeDraw = 1+ charType.nextInt(charCount);
+			System.out.println(charTypeDraw);
+			
+			switch (charTypeDraw) {					//Möglichkeiten Char
+			case 1: {
+				System.out.println("Charakter 1 gezogen!");
+				break;
+			}case 2: {
+				System.out.println("Charakter 2 gezogen!");
+				break;
+			}case 3: {
+				System.out.println("Charakter 3 gezogen!");
+				break;
+			}case 4: {
+				System.out.println("Charakter 4 gezogen!");
+				break;
+			}case 5: {
+				System.out.println("Charakter 5 gezogen!");
+				break;
+			}
+			}
+			
+		}else if (lootTypeDraw < 71){
+			System.out.println("Medallie");		// 5 oder 10 Medallien
+			Random medalCount = new Random();
+			int medalCountDraw = 1+ medalCount.nextInt(100);
+			
+			if (medalCountDraw < 31){			//10 Medallien
+				Random charType = new Random();
+				int charTypeDraw = 1+ charType.nextInt(charCount);
+				System.out.println(charTypeDraw);
+				
+				switch (charTypeDraw) {					//Möglichkeiten Char
+				case 1: {
+					System.out.println("10 Medallien für Charakter 1 gezogen!");
+					break;
+				}case 2: {
+					System.out.println("10 Medallien für Charakter 2 gezogen!");
+					break;
+				}case 3: {
+					System.out.println("10 Medallien für Charakter 3 gezogen!");
+					break;
+				}case 4: {
+					System.out.println("10 Medallien für Charakter 4 gezogen!");
+					break;
+				}case 5: {
+					System.out.println("10 Medallien für Charakter 5 gezogen!");
+					break;
+				}
+				}
+			}else if (medalCountDraw < 101){	//5 Medallien
+				Random charType = new Random();
+				int charTypeDraw = 1+ charType.nextInt(charCount);
+				System.out.println(charTypeDraw);
+				
+				switch (charTypeDraw) {					//Möglichkeiten Char
+				case 1: {
+					System.out.println("5 Medallien für Charakter 1 gezogen!");
+					break;
+				}case 2: {
+					System.out.println("5 Medallien für Charakter 2 gezogen!");
+					break;
+				}case 3: {
+					System.out.println("5 Medallien für Charakter 3 gezogen!");
+					break;
+				}case 4: {
+					System.out.println("5 Medallien für Charakter 4 gezogen!");
+					break;
+				}case 5: {
+					System.out.println("5 Medallien für Charakter 5 gezogen!");
+					break;
+				}
+				}
+			}
+			
+			
+			
+			
+		}else if (lootTypeDraw < 101){
+			System.out.println("Gold (Du armer Schlucker)");
+		}else {
+			System.out.println("Fehler");
+		}
+	}
+}
